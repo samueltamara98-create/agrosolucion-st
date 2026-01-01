@@ -1,493 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroSolución ST - Asesoría Técnica Agronómica</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Reset y estilos base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        ul {
-            list-style: none;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #004d00;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            text-align: center;
-            transition: background-color 0.3s;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #003300;
-        }
-        .section {
-            padding: 60px 0;
-        }
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #004d00;
-            text-align: center;
-        }
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        /* Header */
-        header {
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #004d00;
-        }
-        nav ul {
-            display: flex;
-        }
-        nav li {
-            margin-left: 30px;
-        }
-        nav a {
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #004d00;
-        }
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #004d00 0%, #90EE90 100%);
-            color: #fff;
-            text-align: center;
-            padding: 120px 20px 80px;
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-        }
-
-        /* Quiénes Somos */
-        .about {
-            background-color: #fff;
-        }
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        /* Misión y Visión */
-        .mission-vision {
-            background-color: #f9f9f9;
-        }
-        .mission-vision-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-        .mission, .vision {
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .mission h3, .vision h3 {
-            color: #004d00;
-            margin-bottom: 15px;
-        }
-
-        /* Servicios */
-        .services {
-            background-color: #fff;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
-            background-color: #f9f9f9;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .service-icon {
-            font-size: 3rem;
-            color: #004d00;
-            margin-bottom: 20px;
-        }
-        .service-card h4 {
-            margin-bottom: 15px;
-            color: #004d00;
-        }
-
-        /* Diferenciales */
-        .differentials {
-            background-color: #f9f9f9;
-        }
-        .differentials-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .differential-item {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .differential-item i {
-            font-size: 2rem;
-            color: #004d00;
-            margin-bottom: 10px;
-        }
-
-        /* Proyectos */
-        .projects {
-            background-color: #fff;
-        }
-        .projects-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .project-item {
-            background-color: #f9f9f9;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        /* Contacto */
-        .contact {
-            background-color: #f9f9f9;
-        }
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-        .contact-form {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-        }
-        .contact-info {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .contact-info p {
-            margin-bottom: 15px;
-        }
-        .whatsapp-btn {
-            background-color: #25D366;
-            color: #fff;
-        }
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #004d00;
-            color: #fff;
-            text-align: center;
-            padding: 30px 0;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .social-links a {
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        .social-links a:hover {
-            color: #90EE90;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-            }
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                margin-top: 20px;
-            }
-            nav li {
-                margin: 10px 0;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .about-content, .mission-vision-content, .contact-content {
-                grid-template-columns: 1fr;
-            }
-            .footer-content {
-                flex-direction: column;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>AgroSolución ST | Asesoría Agronómica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f4;
+      color: #2e2e2e;
+    }
+    header {
+      background-color: #1b5e20;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #2e7d32;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      color: #1b5e20;
+    }
+    footer {
+      background-color: #1b5e20;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .servicio {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 5px solid #2e7d32;
+    }
+    .boton {
+      display: inline-block;
+      background-color: #2e7d32;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">AgroSolución ST</div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#quienes-somos">Quiénes Somos</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#proyectos">Proyectos / Experiencia</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="container">
-            <h1>Soluciones técnicas integrales para el desarrollo agrícola y el manejo profesional de zonas verdes</h1>
-            <p>Asesoría agronómica especializada, sostenible y basada en criterios técnicos.</p>
-            <a href="#contacto" class="btn">Solicitar asesoría</a>
-        </div>
-    </section>
+<header>
+  <h1>AgroSolución ST</h1>
+  <p>Asesoría técnica especializada y soluciones integrales en el sector agronómico</p>
+</header>
 
-    <!-- Quiénes Somos -->
-    <section id="quienes-somos" class="section about">
-        <div class="container">
-            <h2 class="section-title">Quiénes Somos</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>AgroSolución ST es una empresa de asesoría técnica especializada en el sector agronómico, dedicada a proporcionar soluciones integrales y sostenibles para el desarrollo agrícola y el manejo profesional de zonas verdes. Nuestro enfoque se basa en criterios técnicos, ambientales y productivos, garantizando resultados óptimos para nuestros clientes.</p>
-                    <p>Contamos con un equipo de profesionales altamente capacitados, comprometidos con la atención personalizada y la entrega de soluciones a la medida de cada proyecto. Nuestra experiencia nos permite abordar desde asesorías técnicas en cultivos hasta el mantenimiento integral de espacios verdes, siempre priorizando la sostenibilidad y la calidad.</p>
-                </div>
-                <div>
-                    <!-- Placeholder para imagen -->
-                    <img src="https://via.placeholder.com/500x300/90EE90/004d00?text=Equipo+AgroSolución+ST" alt="Equipo AgroSolución ST">
-                </div>
-            </div>
-        </div>
-    </section>
+<nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#contacto">Contacto</a>
+</nav>
 
-    <!-- Misión y Visión -->
-    <section class="section mission-vision">
-        <div class="container">
-            <div class="mission-vision-content">
-                <div class="mission">
-                    <h3>Misión</h3>
-                    <p>Brindar asesoría técnica confiable y especializada en el sector agronómico, optimizando la productividad agrícola, garantizando la sostenibilidad ambiental y mejorando la calidad de los cultivos y zonas verdes a través de soluciones integrales y personalizadas.</p>
-                </div>
-                <div class="vision">
-                    <h3>Visión</h3>
-                    <p>Ser una empresa referente en asesoría agronómica a nivel regional y nacional, destacándonos por nuestra innovación, tecnología y compromiso con la sostenibilidad, contribuyendo al desarrollo agrícola responsable y al cuidado del medio ambiente.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="inicio">
+  <h2>Bienvenidos</h2>
+  <p>
+    AgroSolución ST es una empresa dedicada a la asesoría técnica agronómica especializada,
+    mantenimiento de zonas verdes y acompañamiento integral a proyectos agrícolas,
+    garantizando sostenibilidad, eficiencia y resultados.
+  </p>
+</section>
 
-    <!-- Servicios -->
-    <section id="servicios" class="section services">
-        <div class="container">
-            <h2 class="section-title">Servicios</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-seedling service-icon"></i>
-                    <h4>Asesoría técnica en cultivos agrícolas</h4>
-                    <p>Evaluación y recomendaciones especializadas para optimizar el rendimiento de cultivos agrícolas, incluyendo técnicas de siembra, riego y manejo integrado.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-leaf service-icon"></i>
-                    <h4>Manejo y mantenimiento de zonas verdes</h4>
-                    <p>Servicios integrales de mantenimiento para parques, jardines y áreas verdes, enfocados en la salud vegetal y la estética sostenible.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-microscope service-icon"></i>
-                    <h4>Diagnóstico y manejo fitosanitario</h4>
-                    <p>Análisis técnicos para identificar plagas, enfermedades y deficiencias, con planes de manejo fitosanitario efectivos y ecológicos.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-flask service-icon"></i>
-                    <h4>Fertilización y nutrición vegetal</h4>
-                    <p>Programas de fertilización personalizados basados en análisis de suelos, asegurando una nutrición óptima para el crecimiento saludable de plantas.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-tree service-icon"></i>
-                    <h4>Diseño y mantenimiento de jardines</h4>
-                    <p>Creación de diseños paisajísticos sostenibles y servicios de mantenimiento continuo para jardines residenciales y comerciales.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-project-diagram service-icon"></i>
-                    <h4>Acompañamiento técnico a proyectos productivos</h4>
-                    <p>Asesoría integral en la planeación, ejecución y seguimiento de proyectos agropecuarios, desde la concepción hasta la cosecha.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="servicios">
+  <h2>Servicios</h2>
 
-    <!-- Diferenciales -->
-    <section class="section differentials">
-        <div class="container">
-            <h2 class="section-title">Por qué elegirnos</h2>
-            <div class="differentials-list">
-                <div class="differential-item">
-                    <i class="fas fa-user-tie"></i>
-                    <h4>Asesoría profesional especializada</h4>
-                    <p>Equipo de expertos con amplia experiencia en agronomía.</p>
-                </div>
-                <div class="differential-item">
-                    <i class="fas fa-recycle"></i>
-                    <h4>Enfoque técnico y sostenible</h4>
-                    <p>Soluciones basadas en criterios ambientales y productivos.</p>
-                </div>
-                <div class="differential-item">
-                    <i class="fas fa-cogs"></i>
-                    <h4>Soluciones integrales</h4>
-                    <p>Abordaje completo desde diagnóstico hasta implementación.</p>
-                </div>
-                <div class="differential-item">
-                    <i class="fas fa-chart-line"></i>
-                    <h4>Planeación y seguimiento técnico</h4>
-                    <p>Monitoreo continuo y ajustes para garantizar resultados.</p>
-                </div>
-                <div class="differential-item">
-                    <i class="fas fa-trophy"></i>
-                    <h4>Compromiso con resultados</h4>
-                    <p>Enfoque en la satisfacción del cliente y el éxito del proyecto.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="servicio">
+    <h3>Asesoría Técnica en Cultivos</h3>
+    <p>Manejo agronómico, diagnóstico de suelos, nutrición vegetal, control de plagas y enfermedades.</p>
+  </div>
 
-    <!-- Proyectos / Experiencia -->
-    <section id="proyectos" class="section projects">
-        <div class="container">
-            <h2 class="section-title">Proyectos / Experiencia</h2>
-            <div class="projects-content">
-                <div class="project-item">
-                    <h4>Zonas verdes residenciales</h4>
-                    <p>Mantenimiento y diseño de jardines en comunidades residenciales, enfocados en la sostenibilidad y el ahorro de recursos hídricos.</p>
-                </div>
-                <div class="project-item">
-                    <h4>Cultivos productivos</h4>
-                    <p>Asesoría técnica en fincas agrícolas para cultivos de alto rendimiento, incluyendo implementación de técnicas de agricultura sostenible.</p>
-                </div>
-                <div class="project-item">
-                    <h4>Asesorías técnicas empresariales</h4>
-                    <p>Consultoría para empresas del sector agrícola, incluyendo diagnóstico de suelos, manejo fitosanitario y optimización de procesos productivos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="servicio">
+    <h3>Mantenimiento de Zonas Verdes</h3>
+    <p>Poda técnica, manejo de jardines, control de malezas, riego y recuperación paisajística.</p>
+  </div>
 
-    <!-- Contacto -->
-    <section id="contacto" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form action="#" method="post">
-                        <input type="text" name="name" placeholder="Nombre" required>
-                        <input type="email" name="email" placeholder="Correo electrónico" required>
-                        <input type="tel" name="phone" placeholder="Teléfono" required>
-                        <textarea name="message" rows="5" placeholder="Mensaje" required></textarea>
-                        <button type="submit" class="btn">Enviar mensaje</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <p><i class="fas fa-phone"></i> Teléfono: +57 3008850075</p>
-                    <p><i class="fas fa-envelope"></i> Correo: agrosolucionst@gmail.com</p>
+  <div class="servicio">
+    <h3>Soluciones Integrales</h3>
+    <p>Planificación, ejecución y seguimiento de proyectos agrícolas y ambientales.</p>
+  </div>
+</section>
+
+<section id="nosotros">
+  <h2>Misión</h2>
+  <p>
+    Brindar soluciones agronómicas eficientes, sostenibles y técnicas que optimicen la productividad
+    y el manejo responsable de los recursos naturales.
+  </p>
+
+  <h2>Visión</h2>
+  <p>
+    Ser una empresa referente en asesoría agronómica y manejo de zonas verdes a nivel regional.
+  </p>
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p><strong>Correo:</strong> agrosolucionst@gmail.com</p>
+  <p><strong>Teléfono / WhatsApp:</strong> +57 XXX XXX XXXX</p>
+  <p><strong>Ubicación:</strong> Colombia</p>
+
+  <a class="boton" href="https://wa.me/57XXXXXXXXXX" target="_blank">
+    Contáctanos por WhatsApp
+  </a>
+</section>
+
+<footer>
+  <p>© 2025 AgroSolución ST. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
+
